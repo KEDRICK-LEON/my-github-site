@@ -6,3 +6,7 @@
 To improve my knowledge on comp science and take a ap class.
 ## What I Want to Build
 I want to build a portfollio to show things I create.
+Collaborator:
+Bozi Dape
+"What is one rule or constraint you think is most important when using AI tools for coding?"
+I believe a rule or constraintthat is important is that it is reviewed and properly inputted and works properly.
