@@ -1,33 +1,91 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Your Name]'s Website</title>
+    <title>Kedrick Leon's Website</title>
     <style>
-      body { font-family: Arial, sans-serif; max-width: 800px;
-             margin: 0 auto; padding: 20px; background: #f5f5f5; }
-      h1   { color: #1F4E79; }
-      h2   { color: #2E75B6; border-bottom: 2px solid #2E75B6; }
-      p    { line-height: 1.6; }
+      :root {
+        --bg-color: #f5f5f5;
+        --text-color: #333333;
+        --h1-color: #1F4E79;
+        --h2-color: #2E75B6;
+        --link-color: #0066cc;
+        --btn-bg: #e0e0e0;
+        --btn-text: #333333;
+      }
+
+      [data-theme="dark"] {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        --h1-color: #4F94CD;
+        --h2-color: #5CACEE;
+        --link-color: #63B8FF;
+        --btn-bg: #333333;
+        --btn-text: #ffffff;
+      }
+
+      body { 
+        font-family: Arial, sans-serif; 
+        max-width: 800px;
+        margin: 0 auto; 
+        padding: 20px; 
+        background: var(--bg-color); 
+        color: var(--text-color);
+        transition: background 0.3s, color 0.3s;
+      }
+      
+      h1 { color: var(--h1-color); }
+      h2 { color: var(--h2-color); border-bottom: 2px solid var(--h2-color); }
+      p  { line-height: 1.6; }
+      a  { color: var(--link-color); }
+
+      .theme-toggle-btn {
+        float: right;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--btn-bg);
+        color: var(--btn-text);
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s, color 0.3s;
+      }
     </style>
   </head>
   <body>
-    <h1>Hi, I'm [Kedirck Leon]!</h1>
+    <button class="theme-toggle-btn" id="themeToggle">Dark Mode</button>
+
+    <h1>Hi, I'm Kedrick Leon!</h1>
  
     <h2>About Me</h2>
-    <p>[I like to be very academic and educaed. I try to pursue for more knowledge and activities to do even outside of school.]</p>
+    <p>I like to be very academic and educated. I try to pursue for more knowledge and activities to do even outside of school.</p>
  
     <h2>I play basketball and like learning about different cultures.</h2>
-    <p>[I enjoy making others happy and helping those in need. I also enjoy learning about where people come from and how they differ from others and fit in society.]</p>
+    <p>I enjoy making others happy and helping those in need. I also enjoy learning about where people come from and how they differ from others and fit in society.</p>
  
     <h2>Is to boost my knowledge of computer science.</h2>
-    <p>[I'm building a portfolio of my skills and abilities displayed through different projects.]</p>
+    <p>I'm building a portfolio of my skills and abilities displayed through different projects.</p>
  
     <h2>My GitHub</h2>
     <p>Check out my projects: 
-      <a href="https://github.com/[your-username]">[Kedrick Leon]</a>
+      <a href="https://github.com[KEDRICK-LEON]">Kedrick Leon</a>
     </p>
+
+    <script>
+      const toggleBtn = document.getElementById('themeToggle');
+      
+      toggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        
+        if (currentTheme === 'dark') {
+          document.documentElement.removeAttribute('data-theme');
+          toggleBtn.textContent = 'Dark Mode';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          toggleBtn.textContent = 'Light Mode';
+        }
+      });
+    </script>
   </body>
 </html>
