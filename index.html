@@ -13,6 +13,7 @@
         --link-color: #0066cc;
         --btn-bg: #e0e0e0;
         --btn-text: #333333;
+        --card-bg: #ffffff;
       }
 
       [data-theme="dark"] {
@@ -23,24 +24,54 @@
         --link-color: #63B8FF;
         --btn-bg: #333333;
         --btn-text: #ffffff;
+        --card-bg: #1e1e1e;
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
 
       body { 
         font-family: Arial, sans-serif; 
         max-width: 800px;
         margin: 0 auto; 
-        padding: 20px; 
+        padding: 80px 20px 20px 20px; 
         background: var(--bg-color); 
         color: var(--text-color);
         transition: background 0.3s, color 0.3s;
       }
       
       h1 { color: var(--h1-color); margin: 0; }
-      h2 { color: var(--h2-color); border-bottom: 2px solid var(--h2-color); padding-bottom: 5px; }
+      h2 { color: var(--h2-color); border-bottom: 2px solid var(--h2-color); padding-top: 40px; }
       h3 { color: var(--h2-color); margin-top: 20px; margin-bottom: 5px; }
       p  { line-height: 1.6; }
-      a  { color: var(--link-color); font-weight: bold; text-decoration: none; }
-      a:hover { text-decoration: underline; }
+      a  { color: var(--link-color); font-weight: bold; }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: var(--card-bg);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 1000;
+        padding: 10px 0;
+      }
+
+      .nav-container {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        margin-right: 15px;
+        font-size: 0.9rem;
+      }
 
       .header-container {
         display: flex;
@@ -83,6 +114,30 @@
         transition: background 0.3s, color 0.3s;
       }
 
+      .quote-container {
+        background: var(--card-bg);
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 5px solid var(--h2-color);
+        margin: 20px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      }
+
+      .quote-text {
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+
+      .quote-btn {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: var(--h2-color);
+        color: white;
+        cursor: pointer;
+        font-size: 0.85rem;
+      }
+
       .project-list {
         margin-top: 15px;
       }
@@ -90,37 +145,61 @@
   </head>
   <body>
 
+    <nav>
+      <div class="nav-container">
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#interests">Interests</a>
+          <a href="#goal">Goal</a>
+          <a href="#projects">Projects</a>
+        </div>
+        <button class="theme-toggle-btn" id="themeToggle">Dark Mode</button>
+      </div>
+    </nav>
+
     <div class="header-container">
       <h1>Hi, I'm Kedrick Leon!</h1>
-      <button class="theme-toggle-btn" id="themeToggle">Dark Mode</button>
     </div>
 
     <div class="welcome-text">Welcome to my portfolio website! 🚀</div>
- 
-    <h2>About Me</h2>
-    <p>I like to be very academic and educated. I try to pursue for more knowledge and activities to do even outside of school.</p>
- 
-    <h2>My Interests</h2>
-    <p>I play basketball and like learning about different cultures. I enjoy making others happy and helping those in need. I also enjoy learning about where people come from and how they differ from others and fit in society.</p>
- 
-    <h2>My Goal</h2>
-    <p>Is to boost my knowledge of computer science. I'm building a portfolio of my skills and abilities displayed through different projects.</p>
- 
-    <h2>My Projects</h2>
-    <p>Check out the work I have built:</p>
 
-    <div class="project-list">
-      <h3>GitHub Profile</h3>
-      <p><a href="https://github.com/KEDRICK-LEON" target="_blank">View GitHub Portfolio</a></p>
+    <div class="quote-container">
+      <p class="quote-text" id="quote">"The only way to do great work is to love what you do."</p>
+      <button class="quote-btn" id="quoteBtn">New Quote</button>
+    </div>
+ 
+    <div id="about">
+      <h2>About Me</h2>
+      <p>I like to be very academic and educated. I try to pursue for more knowledge and activities to do even outside of school.</p>
+    </div>
+ 
+    <div id="interests">
+      <h2>My Interests</h2>
+      <p>I play basketball and like learning about different cultures. I enjoy making others happy and helping those in need. I also enjoy learning about where people come from and how they differ from others and fit in society.</p>
+    </div>
+ 
+    <div id="goal">
+      <h2>My Goal</h2>
+      <p>Is to boost my knowledge of computer science. I'm building a portfolio of my skills and abilities displayed through different projects.</p>
+    </div>
+ 
+    <div id="projects">
+      <h2>My Projects</h2>
+      <p>Check out the work I have built:</p>
 
-      <h3>CSP App</h3>
-      <p><a href="https://studio.code.org/projects/applab/466ce297-3393-44a1-87a2-bcd7989d0489" target="_blank">Open CSP App</a></p>
+      <div class="project-list">
+        <h3>GitHub Profile</h3>
+        <p><a href="https://github.com/KEDRICK-LEON" target="_blank">View GitHub Portfolio</a></p>
 
-      <h3>AP CSP App</h3>
-      <p><a href="https://studio.code.org/projects/applab/3f99276b-3f44-4e01-8b78-19064173d282" target="blank" target="_blank">Open AP CSP App</a></p>
-      
-      <h3>Initial Contact Project</h3>
-      <p><a href="https://drive.google.com/file/d/16ei_Sd0yVWfigf6GvMtZTaZMN83U0dr3/view" target="_blank"" target="blank" target="_blank">View Initial Contact Document</a></p>
+        <h3>CSP App</h3>
+        <p><a href="https://studio.code.org/projects/applab/466ce297-3393-44a1-87a2-bcd7989d0489" target="_blank">Open CSP App</a></p>
+
+        <h3>AP CSP App</h3>
+        <p><a href="https://studio.code.org/projects/applab/3f99276b-3f44-4e01-8b78-19064173d282" target="_blank">Open AP CSP App</a></p>
+        
+        <h3>Initial Contact Project</h3>
+        <p><a href="https://drive.google.com/file/d/16ei_Sd0yVWfigf6GvMtZTaZMN83U0dr3/view" target="_blank" target="_blank">View Initial Contact Document</a></p>
+      </div>
     </div>
 
     <script>
@@ -144,6 +223,22 @@
           toggleBtn.textContent = 'Light Mode';
           localStorage.setItem('theme', 'dark');
         }
+      });
+
+      const quotes = [
+        '"The only way to do great work is to love what you do." - Steve Jobs',
+        '"Knowledge is power." - Francis Bacon',
+        '"An investment in knowledge pays the best interest." - Benjamin Franklin',
+        '"Learning never exhausts the mind." - Leonardo da Vinci',
+        '"The mind is not a vessel to be filled, but a fire to be kindled." - Plutarch'
+      ];
+
+      const quoteEl = document.getElementById('quote');
+      const quoteBtn = document.getElementById('quoteBtn');
+
+      quoteBtn.addEventListener('click', () => {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        quoteEl.textContent = quotes[randomIndex];
       });
     </script>
   </body>
