@@ -141,6 +141,43 @@
       .project-list {
         margin-top: 15px;
       }
+
+      .quiz-container {
+        background: var(--card-bg);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        margin-top: 20px;
+      }
+
+      .quiz-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 15px 0;
+      }
+
+      .quiz-opt-btn {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid var(--h2-color);
+        border-radius: 5px;
+        background: transparent;
+        color: var(--text-color);
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.2s;
+      }
+
+      .quiz-opt-btn:hover {
+        background: rgba(46, 117, 182, 0.1);
+      }
+
+      .score-board {
+        font-weight: bold;
+        color: var(--h1-color);
+        margin-top: 15px;
+      }
     </style>
   </head>
   <body>
@@ -152,6 +189,7 @@
           <a href="#interests">Interests</a>
           <a href="#goal">Goal</a>
           <a href="#projects">Projects</a>
+          <a href="#quiz">Quiz</a>
         </div>
         <button class="theme-toggle-btn" id="themeToggle">Dark Mode</button>
       </div>
@@ -182,12 +220,10 @@
       <h2>My Goal</h2>
       <p>Is to boost my knowledge of computer science. I'm building a portfolio of my skills and abilities displayed through different projects.</p>
     </div>
- 
-    <div id="projects">
+  <div id="projects">
       <h2>My Projects</h2>
       <p>Check out the work I have built:</p>
-
-      <div class="project-list">
+    <div class="project-list">
         <h3>GitHub Profile</h3>
         <p><a href="https://github.com/KEDRICK-LEON" target="_blank">View GitHub Portfolio</a></p>
 
@@ -199,6 +235,15 @@
         
         <h3>Initial Contact Project</h3>
         <p><a href="https://drive.google.com/file/d/16ei_Sd0yVWfigf6GvMtZTaZMN83U0dr3/view" target="_blank" target="_blank">View Initial Contact Document</a></p>
+      </div>
+    </div>
+
+    <div id="quiz">
+      <h2>Computer Science Quiz</h2>
+      <div class="quiz-container">
+        <p id="quiz-question">Question will load here...</p>
+        <div class="quiz-options" id="quiz-options"></div>
+        <p class="score-board" id="score-board">Score: 0</p>
       </div>
     </div>
 
@@ -240,6 +285,52 @@
         const randomIndex = Math.floor(Math.random() * quotes.length);
         quoteEl.textContent = quotes[randomIndex];
       });
-    </script>
-  </body>
-</html>
+
+      const quizData = [
+        {
+          q: "What does HTML stand for?",
+          a: ["Hyper Text Markup Language", "High Text Machine Language", "Hyper Tabular Multi Language"],
+          correct: 0
+        },
+        {
+          q: "Which of the following is NOT a programming language?",
+          a: ["Python", "HTML", "Java"],
+          correct: 1
+        },
+        {
+          q: "What is the main purpose of a CSS file?",
+          a: ["To store data", "To style web pages", "To run calculations"],
+          correct: 2
+        }
+      ];
+
+      let currentTrack = 0;
+      let scoreNum = 0;
+
+      const questionEl = document.getElementById('quiz-question');
+      const optionsEl = document.getElementById('quiz-options');
+      const scoreEl = document.getElementById('score-board');
+
+      function loadQuizQuestion() {
+        if (currentTrack >= quizData.length) {
+          questionEl.textContent = "Quiz Complete! Great job!";
+          optionsEl.innerHTML = "";
+          return;
+        }
+
+        const currentQuiz = quizData[currentTrack];
+        questionEl.textContent = currentQuiz.q;
+        optionsEl.innerHTML = "";
+
+        currentQuiz.a.forEach((option, idx) => {
+          const btn = document.createElement('button');
+          btn.classList.add('quiz-opt-btn');
+          btn.textContent = option;
+          btn.addEventListener('click', () => checkQuizAnswer(idx));
+          optionsEl.appendChild(btn);
+        });
+      }
+
+
+ 
+    
