@@ -37,8 +37,9 @@
       
       h1 { color: var(--h1-color); }
       h2 { color: var(--h2-color); border-bottom: 2px solid var(--h2-color); }
+      h3 { color: var(--h2-color); margin-top: 20px; margin-bottom: 5px; }
       p  { line-height: 1.6; }
-      a  { color: var(--link-color); }
+      a  { color: var(--link-color); font-weight: bold; }
 
       .theme-toggle-btn {
         float: right;
@@ -51,6 +52,10 @@
         font-weight: bold;
         transition: background 0.3s, color 0.3s;
       }
+
+      .project-list {
+        margin-top: 15px;
+      }
     </style>
   </head>
   <body>
@@ -61,31 +66,52 @@
     <h2>About Me</h2>
     <p>I like to be very academic and educated. I try to pursue for more knowledge and activities to do even outside of school.</p>
  
-    <h2>I play basketball and like learning about different cultures.</h2>
-    <p>I enjoy making others happy and helping those in need. I also enjoy learning about where people come from and how they differ from others and fit in society.</p>
+    <h2>My Interests</h2>
+    <p>I play basketball and like learning about different cultures. I enjoy making others happy and helping those in need. I also enjoy learning about where people come from and how they differ from others and fit in society.</p>
  
-    <h2>Is to boost my knowledge of computer science.</h2>
-    <p>I'm building a portfolio of my skills and abilities displayed through different projects.</p>
+    <h2>My Goal</h2>
+    <p>Is to boost my knowledge of computer science. I'm building a portfolio of my skills and abilities displayed through different projects.</p>
  
-    <h2>My GitHub</h2>
-    <p>Check out my projects: 
-      <a href="https://github.com[kedrick-leon]">Kedrick Leon</a>
-    </p>
+    <h2>My Projects</h2>
+    <p>Check out the work I have built:</p>
+
+    <div class="project-list">
+      <h3>GitHub Profile</h3>
+      <p><a href="https://github.com" target="_blank">View GitHub Portfolio</a></p>
+
+      <h3>CSP App</h3>
+      <p><a href="https://code.org" target="_blank">Open CSP App</a></p>
+
+      <h3>AP CSP App</h3>
+      <p><a href="https://code.org" target="_blank">Open AP CSP App</a></p>
+      
+      <h3>Initial Contact Project</h3>
+      <p><a href="https://google.com" target="_blank">View Initial Contact Document</a></p>
+    </div>
 
     <script>
       const toggleBtn = document.getElementById('themeToggle');
       
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggleBtn.textContent = 'Light Mode';
+      }
+
       toggleBtn.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         
         if (currentTheme === 'dark') {
           document.documentElement.removeAttribute('data-theme');
           toggleBtn.textContent = 'Dark Mode';
+          localStorage.setItem('theme', 'light');
         } else {
           document.documentElement.setAttribute('data-theme', 'dark');
           toggleBtn.textContent = 'Light Mode';
+          localStorage.setItem('theme', 'dark');
         }
       });
     </script>
   </body>
 </html>
+
