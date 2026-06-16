@@ -7,7 +7,7 @@
      AI tool used: Gemini
      What AI generated: Code that added new interactivty for the app.
      What I modified: The quiz I removed it as my whole app messed up.
-     What I did NOT understand: All of it
+     What I did NOT understand: I didn't understand a few concepts about the quote container.
      Commit message: I put a declaration of AI use
 ═══════════════════════════════════════════ -->
 
@@ -16,28 +16,32 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kedrick Leon's Website</title>
+    <title>Kedrick Leon's Website 🚀</title>
     <style>
       :root {
-        --bg-color: #f5f5f5;
-        --text-color: #333333;
-        --h1-color: #1F4E79;
-        --h2-color: #2E75B6;
-        --link-color: #0066cc;
-        --btn-bg: #e0e0e0;
-        --btn-text: #333333;
-        --card-bg: #ffffff;
+        --bg-gradient: linear-gradient(135deg, #FF6B6B, #4ECDC4, #FFE66D);
+        --text-color: #222222;
+        --h1-color: #ffffff;
+        --h2-color: #1A365D;
+        --link-color: #D9383A;
+        --btn-bg: rgba(255, 255, 255, 0.9);
+        --btn-text: #222222;
+        --card-bg: rgba(255, 255, 255, 0.85);
+        --nav-bg: rgba(255, 255, 255, 0.95);
+        --shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
       }
 
       [data-theme="dark"] {
-        --bg-color: #121212;
-        --text-color: #e0e0e0;
-        --h1-color: #4F94CD;
-        --h2-color: #5CACEE;
-        --link-color: #63B8FF;
+        --bg-gradient: linear-gradient(135deg, #1f1c2c, #928dab);
+        --text-color: #f0f0f0;
+        --h1-color: #00FFCC;
+        --h2-color: #FF007F;
+        --link-color: #00E5FF;
         --btn-bg: #333333;
         --btn-text: #ffffff;
-        --card-bg: #1e1e1e;
+        --card-bg: rgba(30, 30, 30, 0.75);
+        --nav-bg: rgba(20, 20, 20, 0.95);
+        --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
       }
 
       html {
@@ -45,35 +49,52 @@
       }
 
       body { 
-        font-family: Arial, sans-serif; 
-        max-width: 800px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        max-width: 850px;
         margin: 0 auto; 
-        padding: 80px 20px 20px 20px; 
-        background: var(--bg-color); 
+        padding: 100px 20px 40px 20px; 
+        background: var(--bg-gradient);
+        background-attachment: fixed;
         color: var(--text-color);
-        transition: background 0.3s, color 0.3s;
+        transition: background 0.5s ease, color 0.3s;
       }
 
-      h1 { color: var(--h1-color); margin: 0; }
-      h2 { color: var(--h2-color); border-bottom: 2px solid var(--h2-color); padding-bottom: 5px; padding-top: 40px; }
-      h3 { color: var(--h2-color); margin-top: 20px; margin-bottom: 5px; }
-      p  { line-height: 1.6; }
-      a  { color: var(--link-color); font-weight: bold; text-decoration: none; }
-      a:hover { text-decoration: underline; }
+      h1 { 
+        color: var(--h1-color); 
+        margin: 0; 
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      }
+
+      h2 { 
+        color: var(--h2-color); 
+        border-bottom: 3px solid var(--h2-color); 
+        padding-bottom: 8px; 
+        padding-top: 30px; 
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      h3 { color: var(--link-color); margin-top: 20px; margin-bottom: 5px; }
+      p { line-height: 1.7; font-size: 1.05rem; }
+      a { color: var(--link-color); font-weight: bold; text-decoration: none; transition: color 0.2s; }
+      a:hover { text-decoration: underline; opacity: 0.8; }
 
       nav {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        background: var(--card-bg);
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        background: var(--nav-bg);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         z-index: 1000;
-        padding: 10px 0;
+        padding: 15px 0;
+        backdrop-filter: blur(5px);
       }
 
       .nav-container {
-        max-width: 800px;
+        max-width: 850px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -83,8 +104,24 @@
 
       .nav-links a {
         text-decoration: none;
-        margin-right: 15px;
-        font-size: 0.9rem;
+        margin-right: 20px;
+        font-size: 1rem;
+        color: var(--text-color);
+      }
+
+      .section-card {
+        background: var(--card-bg);
+        padding: 25px;
+        border-radius: 16px;
+        margin: 25px 0;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .section-card:hover {
+        transform: translateY(-5px);
       }
 
       .header-container {
@@ -92,12 +129,12 @@
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
         gap: 15px;
       }
 
       .welcome-text {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: bold;
         color: var(--h2-color);
         white-space: nowrap;
@@ -105,7 +142,11 @@
         border-right: 3px solid var(--h2-color);
         width: 0;
         animation: typing 3s steps(30) forwards, blink 0.5s step-end infinite alternate;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 5px 10px;
+        border-radius: 4px;
+        display: inline-block;
       }
 
       @keyframes typing {
@@ -118,42 +159,61 @@
       }
 
       .theme-toggle-btn {
-        padding: 10px 15px;
+        padding: 10px 20px;
         border: none;
-        border-radius: 5px;
+        border-radius: 20px;
         background-color: var(--btn-bg);
         color: var(--btn-text);
         cursor: pointer;
         font-weight: bold;
-        transition: background 0.3s, color 0.3s;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+      }
+
+      .theme-toggle-btn:hover {
+        transform: scale(1.05);
       }
 
       .quote-container {
         background: var(--card-bg);
-        padding: 15px;
-        border-radius: 8px;
-        border-left: 5px solid var(--h2-color);
-        margin: 20px 0;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        padding: 20px;
+        border-radius: 12px;
+        border-left: 6px solid var(--link-color);
+        margin: 25px 0;
+        box-shadow: var(--shadow);
       }
 
       .quote-text {
         font-style: italic;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
+        font-size: 1.1rem;
       }
 
       .quote-btn {
-        padding: 5px 10px;
+        padding: 8px 16px;
         border: none;
-        border-radius: 4px;
+        border-radius: 20px;
         background-color: var(--h2-color);
         color: white;
         cursor: pointer;
-        font-size: 0.85rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+        transition: opacity 0.2s;
       }
 
-      .project-list {
-        margin-top: 15px;
+      .quote-btn:hover {
+        opacity: 0.9;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      @media (max-width: 600px) {
+        .grid-container { grid-template-columns: 1fr; }
+        .welcome-text { font-size: 1rem; white-space: normal; width: 100%; animation: none; border-right: none; }
       }
     </style>
   </head>
@@ -162,98 +222,83 @@
     <nav>
       <div class="nav-container">
         <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#interests">Interests</a>
-          <a href="#goal">Goal</a>
-          <a href="#projects">Projects</a>
+          <a href="#about">👋 About</a>
+          <a href="#projects">💻 Projects</a>
+          <a href="#coursework">📚 Coursework</a>
         </div>
-        <button class="theme-toggle-btn" id="themeToggle">Dark Mode</button>
+        <button class="theme-toggle-btn" id="themeToggle">🌓 Dark Mode</button>
       </div>
     </nav>
 
     <div class="header-container">
-      <h1>Hi, I'm Kedrick Leon!</h1>
+      <h1>Hi, I'm Kedrick Leon! 🌟</h1>
     </div>
 
     <div class="welcome-text">Welcome to my portfolio website! 🚀</div>
 
     <div class="quote-container">
       <p class="quote-text" id="quote">"The only way to do great work is to love what you do."</p>
-      <button class="quote-btn" id="quoteBtn">New Quote</button>
+      <button class="quote-btn" id="quoteBtn">🔄 New Inspiration</button>
     </div>
 
-    <div id="about">
-      <h2>About Me</h2>
-      <p>I like to be very academic and educated. I try to pursue for more knowledge and activities to do even outside of school.</p>
-    </div>
-
-    <div id="interests">
-      <h2>My Interests</h2>
-      <p>I play basketball and like learning about different cultures. I enjoy making others happy and helping those in need. I also enjoy learning about where people come from and how they differ from others and fit in society.</p>
-    </div>
-
-    <div id="goal">
-      <h2>My Goal</h2>
-      <p>Is to boost my knowledge of computer science. I'm building a portfolio of my skills and abilities displayed through different projects.</p>
+    <div id="about" class="section-card">
+      <h2>👤 About Me</h2>
+      <p>Welcome! I am an academically driven student dedicated to expanding my knowledge base both inside and outside the classroom. I constantly seek out challenging activities and learning opportunities that push my boundaries and help me grow as an intellectual.</p>
+      
+      <h3>🌍 My Interests & Global Perspective</h3>
+      <p>Beyond electronics and logic, I am a passionate basketball player and an avid explorer of world cultures. I am fascinated by sociology—specifically learning where people come from, how cultural backgrounds shape community identities, and how unique individual stories piece together into the broader fabric of society. Above all, I find deep purpose in leveraging my skills to make others happy and help those in need.</p>
+      
+      <h3>🎯 My Strategic Goal</h3>
+      <p>My primary target is to aggressively boost my operational knowledge of Computer Science. By constructing this interactive portfolio, I am creating a living roadmap of my expanding technical skill sets and structural engineering capabilities.</p>
     </div>
       
-    <div id="projects">
-      <h2>My Projects</h2>
-      <p>Check out the work I have built:</p>
+    <div id="projects" class="section-card">
+      <h2>📁 My Core Projects & Links</h2>
+      <p>Explore the engineering repositories, 3D assets, and mobile applications I have designed:</p>
 
-      <div class="project-list">
-        <h3>GitHub Profile</h3>
-        <p><a href="https://github.com/KEDRICK-LEON" target="_blank">View GitHub Portfolio</a></p>
+      <div class="grid-container">
+        <div>
+          <h3>🐙 GitHub Ecosystem</h3>
+          <p>My public code depository hub housing active source trees, version histories, and site configurations.</p>
+          <p><a href="https://github.com" target="_blank">🔗 View GitHub Portfolio</a></p>
+          <p><a href="https://github.com/KEDRICK-LEON.github.io" target="_blank">🛠️ View Source Code Repository</a></p>
+        </div>
          
-        <h3>CSP App</h3>
-        <p><a href="https://studio.code.org/projects/applab/3f99276b-3f44-4e01-8b78-19064173d282" target="_blank">Open CSP App</a></p>
+        <div>
+          <h3>📐 Onshape 3D Project</h3>
+          <p>Interactive Computer-Aided Design (CAD) platform project displaying my mechanical design rendering capabilities.</p>
+          <p><a href="https://onshape.com" target="_blank">🔗 Open Onshape Workspace Workspace</a></p>
+        </div>
         
-        <h3>AP CSP App</h3>
-        <p><a href="https://studio.code.org/projects/applab/466ce297-3393-44a1-87a2-bcd7989d0489" target="_blank">Open AP CSP App</a></p>
+        <div>
+          <h3>📱 Code.org AP CSP App</h3>
+          <p>Advanced Placement Computer Science Principles project focusing on complex algorithmic programming structures.</p>
+          <p><a href="https://code.org" target="_blank">🔗 Open AP CSP App</a></p>
+        </div>
         
-        <h3>Initial Contact Project</h3>
-        <p><a href="https://drive.google.com/file/d/16ei_Sd0yVWfigf6GvMtZTaZMN83U0dr3/view" target="_blank">View Initial Contact Document</a></p>
+        <div>
+          <h3>📲 Code.org CSP App Lab</h3>
+          <p>An interactive dynamic app workspace built inside the Code.org development environment.</p>
+          <p><a href="https://code.org" target="_blank">🔗 Open CSP App</a></p>
+        </div>
       </div>
+    </div>
+
+    <div id="coursework" class="section-card">
+      <h2>✨ Coursework & STEM Achievements</h2>
+      <p>A look at the secondary academic standards and research initiatives driving my academic pathway:</p>
+      
+      <h3>📄 Initial Contact Project</h3>
+      <p>A formalized analytical review document evaluating technical outreach structures and initial communication networks.</p>
+      <p><a href="https://google.com" target="_blank">📄 View Initial Contact Document</a></p>
+
+      <h3>🔬 Additional Coursework Highlights</h3>
+      <ul>
+        <li><strong>AP Computer Science Principles:</strong> Object-oriented design concepts, data abstraction, and digital global impacts.</li>
+        <li><strong>STEM Engineering Design:</strong> Prototyping physical structures using CAD modeling pipelines and mechanical workflows.</li>
+      </ul>
     </div>
 
     <script>
       const toggleBtn = document.getElementById('themeToggle');
       const savedTheme = localStorage.getItem('theme');
-      
-      if (savedTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        toggleBtn.textContent = 'Light Mode';
-      }
-
-      toggleBtn.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-
-        if (currentTheme === 'dark') {
-          document.documentElement.removeAttribute('data-theme');
-          toggleBtn.textContent = 'Dark Mode';
-          localStorage.setItem('theme', 'light');
-        } else {
-          document.documentElement.setAttribute('data-theme', 'dark');
-          toggleBtn.textContent = 'Light Mode';
-          localStorage.setItem('theme', 'dark');
-        }
-      });
-
-      const quotes = [
-        '"The only way to do great work is to love what you do." - Steve Jobs',
-        '"Knowledge is power." - Francis Bacon',
-        '"An investment in knowledge pays the best interest." - Benjamin Franklin',
-        '"Learning never exhausts the mind." - Leonardo da Vinci',
-        '"The mind is not a vessel to be filled, but a fire to be kindled." - Plutarch'
-      ];
-
-      const quoteEl = document.getElementById('quote');
-      const quoteBtn = document.getElementById('quoteBtn');
-
-      quoteBtn.addEventListener('click', () => {
-        const randomIndex = Math.floor(Math.random() * quotes.length);
-        quoteEl.textContent = quotes[randomIndex];
-      });
-    </script>
-  </body>
-</html>
