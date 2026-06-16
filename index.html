@@ -31,7 +31,7 @@
         --shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
       }
 
-      [data-theme="dark"] {
+      body[data-theme="dark"] {
         --bg-gradient: linear-gradient(135deg, #1f1c2c, #928dab);
         --text-color: #f0f0f0;
         --h1-color: #00FFCC;
@@ -205,15 +205,8 @@
         opacity: 0.9;
       }
 
-      .grid-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-      }
-
-      @media (max-width: 600px) {
-        .grid-container { grid-template-columns: 1fr; }
-        .welcome-text { font-size: 1rem; white-space: normal; width: 100%; animation: none; border-right: none; }
+      .project-list {
+        margin-top: 15px;
       }
     </style>
   </head>
@@ -223,8 +216,9 @@
       <div class="nav-container">
         <div class="nav-links">
           <a href="#about">👋 About</a>
+          <a href="#interests">🏀 Interests</a>
+          <a href="#goal">🎯 Goal</a>
           <a href="#projects">💻 Projects</a>
-          <a href="#coursework">📚 Coursework</a>
         </div>
         <button class="theme-toggle-btn" id="themeToggle">🌓 Dark Mode</button>
       </div>
@@ -237,68 +231,93 @@
     <div class="welcome-text">Welcome to my portfolio website! 🚀</div>
 
     <div class="quote-container">
-      <p class="quote-text" id="quote">"The only way to do great work is to love what you do."</p>
+      <p class="quote-text" id="quote">"The only way to do great work is to love what you do." - Steve Jobs</p>
       <button class="quote-btn" id="quoteBtn">🔄 New Inspiration</button>
     </div>
 
     <div id="about" class="section-card">
       <h2>👤 About Me</h2>
-      <p>Welcome! I am an academically driven student dedicated to expanding my knowledge base both inside and outside the classroom. I constantly seek out challenging activities and learning opportunities that push my boundaries and help me grow as an intellectual.</p>
-      
-      <h3>🌍 My Interests & Global Perspective</h3>
-      <p>Beyond electronics and logic, I am a passionate basketball player and an avid explorer of world cultures. I am fascinated by sociology—specifically learning where people come from, how cultural backgrounds shape community identities, and how unique individual stories piece together into the broader fabric of society. Above all, I find deep purpose in leveraging my skills to make others happy and help those in need.</p>
-      
-      <h3>🎯 My Strategic Goal</h3>
-      <p>My primary target is to aggressively boost my operational knowledge of Computer Science. By constructing this interactive portfolio, I am creating a living roadmap of my expanding technical skill sets and structural engineering capabilities.</p>
+      <p>I like to be very academic and educated. I try to pursue for more knowledge and activities to do even outside of school.</p>
+    </div>
+
+    <div id="interests" class="section-card">
+      <h2>🌍 My Interests</h2>
+      <p>I play basketball and like learning about different cultures. I enjoy making others happy and helping those in need. I also enjoy learning about where people come from and how they differ from others and fit in society.</p>
+    </div>
+
+    <div id="goal" class="section-card">
+      <h2>🎯 My Goal</h2>
+      <p>Is to boost my knowledge of computer science. I'm building a portfolio of my skills and abilities displayed through different projects.</p>
     </div>
       
     <div id="projects" class="section-card">
-      <h2>📁 My Core Projects & Links</h2>
-      <p>Explore the engineering repositories, 3D assets, and mobile applications I have designed:</p>
+      <h2>📁 My Projects</h2>
+      <p>Check out the work I have built:</p>
 
-      <div class="grid-container">
-        <div>
-          <h3>🐙 GitHub Ecosystem</h3>
-          <p>My public code depository hub housing active source trees, version histories, and site configurations.</p>
-          <p><a href="https://github.com" target="_blank">🔗 View GitHub Portfolio</a></p>
-          <p><a href="https://github.com/KEDRICK-LEON.github.io" target="_blank">🛠️ View Source Code Repository</a></p>
-        </div>
+      <div class="project-list">
+        <h3>GitHub Profile</h3>
+        <p><a href="https://github.com" target="_blank">View GitHub Portfolio</a></p>
          
-        <div>
-          <h3>📐 Onshape 3D Project</h3>
-          <p>Interactive Computer-Aided Design (CAD) platform project displaying my mechanical design rendering capabilities.</p>
-          <p><a href="https://onshape.com" target="_blank">🔗 Open Onshape Workspace Workspace</a></p>
-        </div>
+        <h3>CSP App</h3>
+        <p><a href="https://code.org" target="_blank">Open CSP App</a></p>
         
-        <div>
-          <h3>📱 Code.org AP CSP App</h3>
-          <p>Advanced Placement Computer Science Principles project focusing on complex algorithmic programming structures.</p>
-          <p><a href="https://code.org" target="_blank">🔗 Open AP CSP App</a></p>
-        </div>
+        <h3>AP CSP App</h3>
+        <p><a href="https://code.org" target="_blank">Open AP CSP App</a></p>
         
-        <div>
-          <h3>📲 Code.org CSP App Lab</h3>
-          <p>An interactive dynamic app workspace built inside the Code.org development environment.</p>
-          <p><a href="https://code.org" target="_blank">🔗 Open CSP App</a></p>
-        </div>
+        <h3>Initial Contact Project</h3>
+        <p><a href="https://google.com" target="_blank">View Initial Contact Document</a></p>
       </div>
     </div>
 
     <div id="coursework" class="section-card">
       <h2>✨ Coursework & STEM Achievements</h2>
-      <p>A look at the secondary academic standards and research initiatives driving my academic pathway:</p>
-      
-      <h3>📄 Initial Contact Project</h3>
-      <p>A formalized analytical review document evaluating technical outreach structures and initial communication networks.</p>
-      <p><a href="https://google.com" target="_blank">📄 View Initial Contact Document</a></p>
-
-      <h3>🔬 Additional Coursework Highlights</h3>
+      <p>A look at additional academic milestones:</p>
       <ul>
-        <li><strong>AP Computer Science Principles:</strong> Object-oriented design concepts, data abstraction, and digital global impacts.</li>
-        <li><strong>STEM Engineering Design:</strong> Prototyping physical structures using CAD modeling pipelines and mechanical workflows.</li>
+        <li><strong>AP Computer Science Principles:</strong> Algorithmic logic architectures, application design frameworks, and global societal data impact.</li>
+        <li><strong>Academic Research Pipelines:</strong> Evaluating outreach strategies and structuring technical documentation workflows.</li>
       </ul>
     </div>
 
     <script>
-      const toggleBtn = document.getElementById('themeToggle');
-      const savedTheme = localStorage.getItem('theme');
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme');
+        
+        if (savedTheme === 'dark') {
+          document.body.setAttribute('data-theme', 'dark');
+          toggleBtn.textContent = '☀️ Light Mode';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+          const currentTheme = document.body.getAttribute('data-theme');
+
+          if (currentTheme === 'dark') {
+            document.body.removeAttribute('data-theme');
+            toggleBtn.textContent = '🌓 Dark Mode';
+            localStorage.setItem('theme', 'light');
+          } else {
+            document.body.setAttribute('data-theme', 'dark');
+            toggleBtn.textContent = '☀️ Light Mode';
+            localStorage.setItem('theme', 'dark');
+          }
+        });
+
+        const quotes = [
+          '"The only way to do great work is to love what you do." - Steve Jobs',
+          '"Knowledge is power." - Francis Bacon',
+          '"An investment in knowledge pays the best interest." - Benjamin Franklin',
+          '"Learning never exhausts the mind." - Leonardo da Vinci',
+          '"The mind is not a vessel to be filled, but a fire to be kindled." - Plutarch'
+        ];
+
+        const quoteEl = document.getElementById('quote');
+        const quoteBtn = document.getElementById('quoteBtn');
+
+        quoteBtn.addEventListener('click', () => {
+          const randomIndex = Math.floor(Math.random() * quotes.length);
+          quoteEl.textContent = quotes[randomIndex];
+        });
+      });
+    </script>
+  </body>
+</html>
